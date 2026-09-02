@@ -99,6 +99,17 @@ Every `*.go-live.me` subdomain is backed by enterprise Anycast infrastructure ac
 
 ---
 
+## 💬 Community, Feedback & Support
+
+We welcome your feedback, feature ideas, and bug reports:
+
+- 🐛 **[Open an Issue](https://github.com/shanmukhasaireddy13/Go-Live/issues/new)** — Report DNS anomalies, routing bugs, or platform issues.
+- 💡 **[Feature Requests](https://github.com/shanmukhasaireddy13/Go-Live/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)** — Propose new presets, integrations, and tooling.
+- 💬 **[General Feedback](https://github.com/shanmukhasaireddy13/Go-Live/issues)** — Share thoughts on speed, UX, or edge stability.
+- ⭐ **[Star the Repo](https://github.com/shanmukhasaireddy13/Go-Live)** — Show your support and unlock your permanent edge slot!
+
+---
+
 ## 📄 Release & Copyright
 
 &copy; 2026 Go-Live.me. All rights reserved. Built for developers worldwide.
