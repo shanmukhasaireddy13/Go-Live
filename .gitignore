@@ -1,3 +1,4 @@
-backend/*
-go-live/*
-inventory.md
+backend/
+go-live/
+inventory.md
+*.log
