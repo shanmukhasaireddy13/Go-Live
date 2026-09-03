@@ -52,7 +52,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.CONTRIBUTOR_INVITE_TOKEN || secrets.GH_PAT || github.token }}
           CONTRIBUTOR: ${{ steps.user_info.outputs.contributor }}
-          TARGET_REPO: "shanmukhasaireddy13/Go-Live-App"
+          TARGET_REPO: ${{ secrets.DEV_REPO_NAME || 'shanmukhasaireddy13/Go-Live-App' }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
             echo "::warning::CONTRIBUTOR_INVITE_TOKEN secret is not set. Please add it to repository secrets."
@@ -82,37 +82,36 @@ jobs:
 
       - name: Comment Confirmation on Issue
         uses: actions/github-script@v7
+        env:
+          TARGET_REPO: ${{ secrets.DEV_REPO_NAME || 'shanmukhasaireddy13/Go-Live-App' }}
         with:
           script: |
             const contributor = "${{ steps.user_info.outputs.contributor }}";
             const inviteStatus = "${{ steps.send_invite.outputs.status }}";
-            const privateRepoUrl = "https://github.com/shanmukhasaireddy13/Go-Live-App";
-            const invitesUrl = "https://github.com/shanmukhasaireddy13/Go-Live-App/invitations";
+            const targetRepo = process.env.TARGET_REPO;
+            const privateRepoUrl = `https://github.com/${targetRepo}`;
+            const invitesUrl = `https://github.com/${targetRepo}/invitations`;
 
             let commentBody = "";
 
             if (inviteStatus === "success" || inviteStatus === "already_member") {
               commentBody = `### 🎉 Congratulations @${contributor}! Your Proposal Has Been Approved!\n\n` +
-                `An invitation has been dispatched to your GitHub account granting you direct access to the private development repository: **[Go-Live-App](${privateRepoUrl})**.\n\n` +
+                `An invitation has been dispatched to your GitHub account granting you access to the development repository.\n\n` +
                 `#### 🛠️ Next Steps to Start Contributing:\n` +
                 `1. **Accept Your Invitation**: Check your notifications or visit **[Accept Repository Invitation](${invitesUrl})**.\n` +
                 `2. **Clone & Setup**:\n` +
                 `   \`\`\`bash\n` +
-                `   git clone https://github.com/shanmukhasaireddy13/Go-Live-App.git\n` +
-                `   cd Go-Live-App\n` +
+                `   git clone ${privateRepoUrl}.git\n` +
+                `   cd $(basename "${privateRepoUrl}")\n` +
                 `   git checkout -b feat/your-feature-name\n` +
                 `   \`\`\`\n` +
-                `3. **Install Dependencies & Build**:\n` +
-                `   - Backend: \`cd backend && npm install && npm test\`\n` +
-                `   - Frontend: \`cd go-live && npm install && npm test\`\n` +
-                `4. **Submit Your Pull Request**:\n` +
-                `   - Open a PR against \`main\` on **[Go-Live-App](${privateRepoUrl})** referencing this issue (#${context.issue.number}).\n` +
+                `3. **Submit Your Pull Request**:\n` +
+                `   - Open a PR against \`main\` on **[Development Repository](${privateRepoUrl})** referencing this issue (#${context.issue.number}).\n` +
                 `   - Automated CI test suites will validate your code, and the maintainers will review and merge it!\n\n` +
                 `Welcome aboard and happy coding! 🚀`;
             } else {
               commentBody = `### ⚠️ Notice for @${contributor}\n\n` +
-                `Your contribution proposal was approved by the maintainers! However, an automated invitation could not be sent (pending repository token configuration).\n\n` +
-                `The maintainers will manually invite you to **[Go-Live-App](${privateRepoUrl})** shortly.`;
+                `Your contribution proposal was approved by the maintainers! The maintainers will send you an invitation to the development repository shortly.`;
             }
 
             await github.rest.issues.createComment({
