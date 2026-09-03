@@ -99,14 +99,27 @@ Every `*.go-live.me` subdomain is backed by enterprise Anycast infrastructure ac
 
 ---
 
-## 💬 Community, Feedback & Support
+## 💬 Community, Feedback & How to Open Issues
 
-We welcome your feedback, feature ideas, and bug reports:
+We actively welcome bug reports, suggestions, platform integrations, and general feedback from the developer community!
 
-- 🐛 **[Open an Issue](https://github.com/shanmukhasaireddy13/Go-Live/issues/new)** — Report DNS anomalies, routing bugs, or platform issues.
-- 💡 **[Feature Requests](https://github.com/shanmukhasaireddy13/Go-Live/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)** — Propose new presets, integrations, and tooling.
-- 💬 **[General Feedback](https://github.com/shanmukhasaireddy13/Go-Live/issues)** — Share thoughts on speed, UX, or edge stability.
-- ⭐ **[Star the Repo](https://github.com/shanmukhasaireddy13/Go-Live)** — Show your support and unlock your permanent edge slot!
+### 🐛 1. How to Report a Bug
+If you experience a DNS routing error, domain verification challenge, or unexpected behavior:
+1. Click **[Report a Bug](https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=bug_report.yml)** to open the pre-formatted issue form.
+2. Provide your **subdomain prefix** (e.g. `myproject.go-live.me`), **hosting platform** (Vercel, GitHub Pages, Render, VPS), and a brief description of the issue.
+3. Attach any screenshots, network logs, or error codes (e.g. `502`, `404`, `Verification Required`).
+
+### 💡 2. How to Propose a Feature or Integration
+Want Go-Live to add native 1-click support for **GitHub Pages**, **Netlify**, **Cloudflare Workers**, or **Coolify**?
+1. Click **[Request a Feature](https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=feature_request.yml)** to open the proposal template.
+2. Select your category (New Hosting Provider, DNS & Edge Routing, Dashboard Tooling).
+3. Describe the problem it solves and your proposed workflow.
+4. You can also view and upvote open proposals on our **[Enhancement Board](https://github.com/shanmukhasaireddy13/Go-Live/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)**.
+
+### 💬 3. General Feedback & Discussion
+- Share your thoughts on Anycast speeds, regional latency, or UX improvements directly in our **[Issues Hub](https://github.com/shanmukhasaireddy13/Go-Live/issues)**.
+- Read our full **[Contributing & Community Guidelines](CONTRIBUTING.md)** for more details.
+- ⭐ **[Star the Repository](https://github.com/shanmukhasaireddy13/Go-Live)** to support the project and unlock your permanent edge slot!
 
 ---
 

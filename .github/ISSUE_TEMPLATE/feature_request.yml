@@ -1,0 +1,49 @@
+name: 💡 Feature Request & Integration Proposal
+description: Suggest a new deployment provider (e.g. GitHub Pages, Netlify), tool, or platform feature.
+title: "[Feature]: "
+labels: ["enhancement", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea or a hosting platform you'd like Go-Live to support? We'd love to hear your proposal!
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What area does this proposal relate to?
+      options:
+        - New Hosting Provider Integration (e.g. GitHub Pages, Netlify, Coolify)
+        - DNS Routing & Edge Capabilities (e.g. Wildcard TXT, Webhooks, Redirects)
+        - Developer Dashboard & Telemetry
+        - CLI or API Utility
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement / Motivation
+      description: Is your feature request related to a problem or workflow friction?
+      placeholder: e.g. I want to connect my static documentation site hosted on GitHub Pages directly...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution / Ideal Workflow
+      description: Describe the solution or workflow you'd like to see.
+      placeholder: e.g. Add a 1-click GitHub Pages tab in the dashboard that lets me pick a repository...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or Workarounds Considered
+      description: Any alternative solutions or features you've considered?
+    validations:
+      required: false

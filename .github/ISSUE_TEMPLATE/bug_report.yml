@@ -1,0 +1,72 @@
+name: 🐛 Bug Report
+description: Report a broken DNS route, verification failure, or platform issue.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue with **Go-Live**! Please fill out the details below so we can investigate and fix it quickly.
+
+  - type: input
+    id: subdomain
+    attributes:
+      label: Subdomain Name
+      description: What *.go-live.me subdomain prefix were you claiming or managing?
+      placeholder: e.g. myproject (for myproject.go-live.me)
+    validations:
+      required: false
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Hosting Provider / Routing Target
+      description: Which hosting provider or target type are you connecting?
+      options:
+        - Vercel (1-Click Deploy)
+        - GitHub Pages
+        - Custom CNAME (Render, Railway, Netlify, Fly.io, Cloudflare)
+        - Custom A Record (VPS IPv4)
+        - Other / Not Applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: A clear and concise description of what the problem is.
+      placeholder: Describe what happened...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce the issue?
+      placeholder: |
+        1. Go to 'https://go-live.me'
+        2. Search for subdomain '...'
+        3. Authenticate with GitHub
+        4. See error '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: e.g. Domain should route to Vercel and show Valid Configuration.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots_logs
+    attributes:
+      label: Screenshots or Error Logs
+      description: Paste any error messages, console logs, or screenshots.
+      placeholder: Paste terminal output, DevTools network error, or drag & drop screenshots.
+    validations:
+      required: false

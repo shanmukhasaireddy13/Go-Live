@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Community Feedback & Questions
+    url: https://github.com/shanmukhasaireddy13/Go-Live/issues
+    about: Ask questions, share general feedback, or discuss feature ideas with the maintainers.
