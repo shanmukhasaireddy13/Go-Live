@@ -1,0 +1,123 @@
+name: 🚀 Auto-Invite Contributor to Private Repository
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  invite:
+    name: Invite Approved Contributor
+    runs-on: ubuntu-latest
+    # Trigger if:
+    # 1. Issue was labeled with 'approved', 'accepted', or 'approved-contributor'
+    # 2. OR owner commented '/accept' or '/invite' on an issue
+    if: >
+      (github.event_name == 'issues' && (
+        github.event.label.name == 'approved' ||
+        github.event.label.name == 'accepted' ||
+        github.event.label.name == 'approved-contributor'
+      )) ||
+      (github.event_name == 'issue_comment' && (
+        startsWith(github.event.comment.body, '/accept') ||
+        startsWith(github.event.comment.body, '/invite')
+      ))
+    steps:
+      - name: Verify Inviter Authorization
+        id: auth_check
+        run: |
+          ACTOR="${{ github.actor }}"
+          REPO_OWNER="${{ github.repository_owner }}"
+          echo "Triggered by: $ACTOR on $REPO_OWNER's repository"
+          if [ "$ACTOR" != "$REPO_OWNER" ] && [ "$ACTOR" != "shanmukhasaireddy13" ]; then
+            echo "::error::Unauthorized: Only the repository owner can approve contributors."
+            exit 1
+          fi
+          echo "is_authorized=true" >> $GITHUB_OUTPUT
+
+      - name: Extract Contributor Username
+        id: user_info
+        run: |
+          CONTRIBUTOR="${{ github.event.issue.user.login }}"
+          echo "contributor=$CONTRIBUTOR" >> $GITHUB_OUTPUT
+          echo "Target Contributor to invite: $CONTRIBUTOR"
+
+      - name: Invite Contributor to Private Repo
+        id: send_invite
+        env:
+          GH_TOKEN: ${{ secrets.CONTRIBUTOR_INVITE_TOKEN || secrets.GH_PAT || github.token }}
+          CONTRIBUTOR: ${{ steps.user_info.outputs.contributor }}
+          TARGET_REPO: "shanmukhasaireddy13/Go-Live-App"
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::warning::CONTRIBUTOR_INVITE_TOKEN secret is not set. Please add it to repository secrets."
+            exit 1
+          fi
+
+          echo "Sending collaborator invitation for $CONTRIBUTOR to $TARGET_REPO..."
+          HTTP_STATUS=$(curl -s -o response.json -w "%{http_code}" \
+            -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$TARGET_REPO/collaborators/$CONTRIBUTOR \
+            -d '{"permission":"push"}')
+
+          echo "GitHub API Response Code: $HTTP_STATUS"
+          cat response.json
+
+          if [ "$HTTP_STATUS" -eq 201 ] || [ "$HTTP_STATUS" -eq 204 ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+          elif [ "$HTTP_STATUS" -eq 409 ]; then
+            echo "status=already_member" >> $GITHUB_OUTPUT
+          else
+            echo "status=failed" >> $GITHUB_OUTPUT
+            echo "::warning::Invitation failed with status $HTTP_STATUS"
+          fi
+
+      - name: Comment Confirmation on Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const contributor = "${{ steps.user_info.outputs.contributor }}";
+            const inviteStatus = "${{ steps.send_invite.outputs.status }}";
+            const privateRepoUrl = "https://github.com/shanmukhasaireddy13/Go-Live-App";
+            const invitesUrl = "https://github.com/shanmukhasaireddy13/Go-Live-App/invitations";
+
+            let commentBody = "";
+
+            if (inviteStatus === "success" || inviteStatus === "already_member") {
+              commentBody = `### 🎉 Congratulations @${contributor}! Your Proposal Has Been Approved!\n\n` +
+                `An invitation has been dispatched to your GitHub account granting you direct access to the private development repository: **[Go-Live-App](${privateRepoUrl})**.\n\n` +
+                `#### 🛠️ Next Steps to Start Contributing:\n` +
+                `1. **Accept Your Invitation**: Check your notifications or visit **[Accept Repository Invitation](${invitesUrl})**.\n` +
+                `2. **Clone & Setup**:\n` +
+                `   \`\`\`bash\n` +
+                `   git clone https://github.com/shanmukhasaireddy13/Go-Live-App.git\n` +
+                `   cd Go-Live-App\n` +
+                `   git checkout -b feat/your-feature-name\n` +
+                `   \`\`\`\n` +
+                `3. **Install Dependencies & Build**:\n` +
+                `   - Backend: \`cd backend && npm install && npm test\`\n` +
+                `   - Frontend: \`cd go-live && npm install && npm test\`\n` +
+                `4. **Submit Your Pull Request**:\n` +
+                `   - Open a PR against \`main\` on **[Go-Live-App](${privateRepoUrl})** referencing this issue (#${context.issue.number}).\n` +
+                `   - Automated CI test suites will validate your code, and the maintainers will review and merge it!\n\n` +
+                `Welcome aboard and happy coding! 🚀`;
+            } else {
+              commentBody = `### ⚠️ Notice for @${contributor}\n\n` +
+                `Your contribution proposal was approved by the maintainers! However, an automated invitation could not be sent (pending repository token configuration).\n\n` +
+                `The maintainers will manually invite you to **[Go-Live-App](${privateRepoUrl})** shortly.`;
+            }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: commentBody
+            });

@@ -1,0 +1,66 @@
+name: 🤝 Contributor Application & Feature Proposal
+description: Request access to contribute code, build a feature, or implement an integration on Go-Live.
+title: "[Contribute]: "
+labels: ["contributor-proposal", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Welcome to the Go-Live Contributor Community! 🚀
+        We welcome community developers who want to build features, improve edge latency, or implement new hosting integrations.
+        
+        Fill out this quick proposal. Once reviewed and accepted by the maintainers, **you will automatically receive an invitation to the private development repository** to fork/branch, build, and submit Pull Requests!
+
+  - type: input
+    id: feature_title
+    attributes:
+      label: Feature / Component to Implement
+      description: What specific feature, integration, or improvement do you want to build?
+      placeholder: e.g. Native 1-Click GitHub Pages Integration, CLI utility, Docker preset
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Technical Area
+      description: Which part of the platform will this contribution touch?
+      options:
+        - Frontend (Next.js 16, React 19, TailwindCSS, Dashboard UI)
+        - Backend & API (Node.js Express, Cloudflare Anycast API, MongoDB Atlas)
+        - Integrations (Vercel, GitHub Pages, Netlify, Render, Railway, VPS)
+        - DNS Routing & Edge Telemetry (Cloudflare DNS, SSL/TLS Handshake)
+        - Documentation, Tests & DevOps (CI/CD, E2E Testing)
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation_plan
+    attributes:
+      label: Proposed Implementation Plan
+      description: Outline your technical approach and the components you plan to modify or create.
+      placeholder: |
+        1. Add backend controller endpoint in /backend/controllers/...
+        2. Create new dashboard tab in /go-live/components/manage/...
+        3. Add unit and integration tests in /backend/tests/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: experience_links
+    attributes:
+      label: Relevant Experience or Previous Work (Optional)
+      description: Share any GitHub repos, PRs, or past projects relevant to this contribution.
+      placeholder: Links to your portfolio, projects, or PRs...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Contributor Agreement
+      options:
+        - label: I agree to follow the project's Contributing Guidelines and Code of Conduct.
+          required: true
+        - label: I understand that pull requests must pass automated CI test suites and receive owner approval before merging into main.
+          required: true

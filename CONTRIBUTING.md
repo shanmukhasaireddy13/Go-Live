@@ -2,16 +2,76 @@
 
 Thank you for helping make **Go-Live** better for developers worldwide!
 
-Whether you are reporting a DNS anomaly, proposing a new hosting integration (like GitHub Pages, Netlify, or Coolify), or suggesting dashboard improvements, this guide walks you through the best way to get your request addressed quickly.
+Whether you are reporting a bug, proposing a new hosting integration (like GitHub Pages, Netlify, or Coolify), or implementing code changes, this guide walks you through the entire lifecycle from proposal to automated invitation, PR submission, and merging.
 
 ---
 
 ## 📋 Table of Contents
 
-1. [How to Report a Bug](#-how-to-report-a-bug)
-2. [How to Propose a Feature or Integration](#-how-to-propose-a-feature-or-integration)
-3. [Submitting General Feedback](#-submitting-general-feedback)
-4. [Community Code of Conduct](#-community-code-of-conduct)
+1. [How to Contribute Code & Build Features](#-how-to-contribute-code--build-features)
+2. [How to Report a Bug](#-how-to-report-a-bug)
+3. [How to Propose a Feature or Integration](#-how-to-propose-a-feature-or-integration)
+4. [Local Development & Testing Standards](#-local-development--testing-standards)
+5. [Submitting General Feedback](#-submitting-general-feedback)
+6. [Community Code of Conduct](#-community-code-of-conduct)
+
+---
+
+## 🚀 How to Contribute Code & Build Features
+
+To maintain code security, high Anycast performance, and production reliability, the Go-Live codebase is organized into:
+- **Public Hub ([`Go-Live`](https://github.com/shanmukhasaireddy13/Go-Live))**: Releases, Issue tracker, feature proposals, and community onboarding.
+- **Private Development Repository ([`Go-Live-App`](https://github.com/shanmukhasaireddy13/Go-Live-App))**: Full-stack Next.js 16 + Node.js Express Anycast DNS engine.
+
+### 4-Step Contributor Workflow:
+
+```
+ 1. Submit Proposal        2. Maintainer Approval      3. Auto-Invite Dispatched     4. Pull Request & CI
+[Open Contributor Issue] ──► [Owner Labels 'approved'] ──► [Access Private Codebase] ──► [Pass Tests & Merge]
+```
+
+1. **Submit a Proposal**:
+   - Open a **[Contributor Application & Feature Proposal](https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=contribute.yml)**.
+   - Outline the feature or improvement you would like to build.
+
+2. **Maintainer Review & Approval**:
+   - The maintainer reviews the proposal and marks it as `approved` or comments `/accept`.
+
+3. **Automated Private Repository Invitation**:
+   - An automated GitHub Action instantly dispatches a collaborator invitation to your GitHub account for **[`Go-Live-App`](https://github.com/shanmukhasaireddy13/Go-Live-App)**.
+   - Accept the invitation via your notifications or visit **[Accept Repository Invitation](https://github.com/shanmukhasaireddy13/Go-Live-App/invitations)**.
+
+4. **Branch, Build & Submit a Pull Request**:
+   - Clone the private repository and checkout a dedicated feature branch:
+     ```bash
+     git clone https://github.com/shanmukhasaireddy13/Go-Live-App.git
+     cd Go-Live-App
+     git checkout -b feat/your-feature-name
+     ```
+   - Make your changes and run the test suite to ensure all tests pass.
+   - Open a **Pull Request** against `main` on `Go-Live-App` referencing your initial proposal issue.
+   - Automated CI test runners will validate your PR, and the repository owner will review and merge your changes into `main`!
+
+---
+
+## 🧪 Local Development & Testing Standards
+
+Before opening a Pull Request, verify that all backend tests and frontend production builds pass:
+
+### Backend Testing (51+ Unit & Integration Suites)
+```bash
+cd backend
+npm install
+npm test
+```
+
+### Frontend Build & Typechecking
+```bash
+cd go-live
+npm install
+npm run build
+node --test tests/domain-service.test.mjs tests/api-client.test.mjs
+```
 
 ---
 

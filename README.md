@@ -116,7 +116,13 @@ Want Go-Live to add native 1-click support for **GitHub Pages**, **Netlify**, **
 3. Describe the problem it solves and your proposed workflow.
 4. You can also view and upvote open proposals on our **[Enhancement Board](https://github.com/shanmukhasaireddy13/Go-Live/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)**.
 
-### 💬 3. General Feedback & Discussion
+### 🤝 3. How to Contribute Code & Build Features
+Want to build a feature or contribute code to Go-Live?
+1. Open a **[Contributor Application & Proposal](https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=contribute.yml)** detailing the component you want to build.
+2. Once approved by the maintainers, **you will automatically receive an invitation** granting you direct access to the private development repository ([`Go-Live-App`](https://github.com/shanmukhasaireddy13/Go-Live-App)).
+3. Create a branch, submit your Pull Request, and automated CI test runners will validate your build for maintainer review and merging!
+
+### 💬 4. General Feedback & Discussion
 - Share your thoughts on Anycast speeds, regional latency, or UX improvements directly in our **[Issues Hub](https://github.com/shanmukhasaireddy13/Go-Live/issues)**.
 - Read our full **[Contributing & Community Guidelines](CONTRIBUTING.md)** for more details.
 - ⭐ **[Star the Repository](https://github.com/shanmukhasaireddy13/Go-Live)** to support the project and unlock your permanent edge slot!
