@@ -1,4 +1,10 @@
-backend/
-go-live/
+# Root Git Ignore
+.env
+.env.*
+.env*.local
+!.env.example
 inventory.md
 *.log
+.DS_Store
+.idea/
+.vscode/
