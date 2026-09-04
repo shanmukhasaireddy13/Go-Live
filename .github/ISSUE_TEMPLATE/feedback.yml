@@ -1,0 +1,75 @@
+name: 💬 Community Feedback & User Experience
+description: Share your experience, UX improvements, speed suggestions, or general feedback on Go-Live.
+title: "[Feedback]: "
+labels: ["feedback", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🌟 Thank you for using Go-Live!
+        Your feedback shapes the future of developer subdomains, 1-click cloud integrations, and DNS automation.
+
+  - type: dropdown
+    id: feedback_category
+    attributes:
+      label: Feedback Area
+      description: Which part of Go-Live are you sharing feedback on?
+      options:
+        - Subdomain Claim & Availability Search
+        - GitHub Login & Star Verification
+        - Developer Dashboard & Tab Navigation
+        - Hosting Provider Integration (Vercel / GitHub Pages / Render / Custom)
+        - DNS Propagation & Anycast Resolution Speed
+        - Social Proof & Community Showcase
+        - Documentation & Policies (Terms / Privacy)
+        - General Experience / Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: experience_rating
+    attributes:
+      label: Overall Experience
+      options:
+        - 🚀 Amazing — seamless 1-click experience
+        - 👍 Good — worked as expected
+        - 💡 Neutral — good, but has room for improvement
+        - ⚠️ Friction / Confusion encountered
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_worked_well
+    attributes:
+      label: What did you enjoy or find seamless?
+      description: Tell us what worked well for your project setup.
+      placeholder: e.g. Connecting my GitHub Pages repository and claiming my subdomain took under 30 seconds...
+    validations:
+      required: false
+
+  - type: textarea
+    id: what_can_improve
+    attributes:
+      label: What could be improved or made clearer?
+      description: Did you encounter any friction, confusing messaging, or edge cases?
+      placeholder: e.g. It would be helpful to have a direct link to check Let's Encrypt SSL status...
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature_ideas
+    attributes:
+      label: Additional Suggestions or Wishlist Items
+      description: Any other features, platforms, or tools you would love to see supported?
+      placeholder: e.g. Support for Cloudflare Pages, Netlify 1-click, or automated preview environments...
+    validations:
+      required: false
+
+  - type: input
+    id: user_subdomain
+    attributes:
+      label: Your Claimed Subdomain (Optional)
+      description: If relevant, share your live subdomain so we can check it out!
+      placeholder: e.g. my-portfolio.go-live.me
+    validations:
+      required: false

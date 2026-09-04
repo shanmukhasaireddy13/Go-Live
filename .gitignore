@@ -4,7 +4,10 @@
 .env*.local
 !.env.example
 inventory.md
+traceability_matrix.md
 *.log
 .DS_Store
 .idea/
 .vscode/
+backups/
+**/backups/

@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-card-subtle: var(--card-subtle);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-signal: var(--signal);
+  --color-flag: var(--flag);
+  --color-emerald: var(--emerald);
+
+  --font-sans: var(--font-plus-jakarta-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* ─── GO-LIVE CLEAN EDITORIAL PALETTE ─── */
+:root {
+  --paper: #f4f5f3;
+  --card: #ffffff;
+  --card-subtle: #eaebea;
+  --rule: #DADDD6;
+  --ink: #14181b;
+  --muted: #5e6668;
+  --signal: #1b4dff;
+  --flag: #b3261e;
+  --emerald: #059669;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #18140f;
+    --card: #211c15;
+    --card-subtle: #2b251c;
+    --rule: #3c3428;
+    --ink: #efe7d9;
+    --muted: #a89c89;
+    --signal: #8399ff;
+    --flag: #d97757;
+    --emerald: #34d399;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #18140f;
+  --card: #211c15;
+  --card-subtle: #2b251c;
+  --rule: #3c3428;
+  --ink: #efe7d9;
+  --muted: #a89c89;
+  --signal: #8399ff;
+  --flag: #d97757;
+  --emerald: #34d399;
+}
+
+html {
+  color-scheme: light dark;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, currentColor 20%, transparent) transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: var(--signal);
+  color: var(--paper);
+}
+
+/* ─── VERCEL / SHADCN CLEAN BOX ARCHITECTURE ─── */
+.clean-box {
+  background-color: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.clean-box-footer {
+  background-color: var(--card-subtle);
+  border-top: 1px solid var(--rule);
+  padding: 12px 20px;
+}

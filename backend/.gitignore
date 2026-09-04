@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (Keep .env.example)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Backups & Snapshots
+backups/
+*.json.bak
+
+# Logs & Debug
+logs/
+*.log
+npm-debug.log*
+
+# OS & Editor
+.DS_Store
+.idea/
+.vscode/
+
+# Test Coverage
+coverage/
+traceability_matrix.md

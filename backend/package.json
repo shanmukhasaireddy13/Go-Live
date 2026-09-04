@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.1.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "node server.js",
+    "test": "node --test --test-force-exit tests/**/*.test.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.113.0",
+    "axios": "^1.20.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.9.4",
+    "zod": "^4.5.4"
+  }
+}
