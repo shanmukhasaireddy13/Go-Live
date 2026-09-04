@@ -1,5 +1,14 @@
 blank_issues_enabled: true
 contact_links:
-  - name: 💬 Community Feedback & Questions
-    url: https://github.com/shanmukhasaireddy13/Go-Live/issues
-    about: Ask questions, share general feedback, or discuss feature ideas with the maintainers.
+  - name: 💬 Community Feedback & User Experience
+    url: https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=feedback.yml
+    about: Share your thoughts, DX suggestions, or impressions with the maintainers.
+  - name: 🌟 Community Project Showcase
+    url: https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=community_showcase.yml
+    about: Showcase your live website or application hosted on a .go-live.me subdomain!
+  - name: 💡 Feature Requests & Integrations
+    url: https://github.com/shanmukhasaireddy13/Go-Live/issues/new?template=feature_request.yml
+    about: Propose new hosting providers (e.g. Netlify, Coolify), tools, or edge features.
+  - name: 🤝 Community Discussions
+    url: https://github.com/shanmukhasaireddy13/Go-Live/discussions
+    about: Connect with fellow developers, ask architectural questions, or share tips.

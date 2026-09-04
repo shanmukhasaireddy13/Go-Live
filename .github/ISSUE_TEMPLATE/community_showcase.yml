@@ -1,0 +1,65 @@
+name: 🌟 Community Project Showcase
+description: Showcase your live website, portfolio, open-source tool, or web app hosted on a Go-Live subdomain!
+title: "[Showcase]: "
+labels: ["community-showcase", "social-proof"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 🚀 Share Your Live Project with the Community!
+        Built something cool on your `.go-live.me` subdomain? Share it here to get featured in our community showcase and social proof wall.
+
+  - type: input
+    id: live_url
+    attributes:
+      label: Live Subdomain URL
+      description: The public `.go-live.me` address of your project.
+      placeholder: https://your-project.go-live.me
+    validations:
+      required: true
+
+  - type: input
+    id: project_title
+    attributes:
+      label: Project Name
+      placeholder: e.g. DevFolio 2026, AI Prompt Studio, Minimal Blog
+    validations:
+      required: true
+
+  - type: textarea
+    id: project_description
+    attributes:
+      label: Project Description
+      description: What does your website/app do? Who is it built for?
+      placeholder: e.g. A fast personal developer portfolio highlighting full-stack projects, built with Next.js 16 and Tailwind CSS...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: hosting_provider
+    attributes:
+      label: Hosting Platform Used
+      options:
+        - Vercel (1-Click Integration)
+        - GitHub Pages (1-Click Integration)
+        - Render Web Service / Static Site
+        - Custom VPS / Cloudflare / Netlify / AWS / Fly.io
+    validations:
+      required: true
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: GitHub Repository / Source Code (Optional)
+      description: Share your open-source repository link if available.
+      placeholder: https://github.com/username/project
+    validations:
+      required: false
+
+  - type: textarea
+    id: tech_stack
+    attributes:
+      label: Tech Stack & Tools
+      placeholder: e.g. Next.js, React, Tailwind CSS, TypeScript, Cloudflare
+    validations:
+      required: false
