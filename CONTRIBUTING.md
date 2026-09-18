@@ -6,17 +6,17 @@ Whether you are reporting a bug, proposing a new hosting integration (like GitHu
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-1. [How to Report a Bug](#-how-to-report-a-bug)
-2. [How to Propose a Feature or Integration](#-how-to-propose-a-feature-or-integration)
-3. [How to Contribute Code & Build Features](#-how-to-contribute-code--build-features)
-4. [Submitting General Feedback](#-submitting-general-feedback)
-5. [Community Code of Conduct](#-community-code-of-conduct)
+1. [How to Report a Bug](#how-to-report-a-bug)
+2. [How to Propose a Feature or Integration](#how-to-propose-a-feature-or-integration)
+3. [How to Contribute Code & Build Features](#how-to-contribute-code--build-features)
+4. [Submitting General Feedback](#submitting-general-feedback)
+5. [Community Code of Conduct](#community-code-of-conduct)
 
 ---
 
-## 🐛 How to Report a Bug
+## How to Report a Bug
 
 If you encounter unexpected behavior with subdomain routing, verification, or edge DNS:
 
@@ -35,7 +35,7 @@ If you encounter unexpected behavior with subdomain routing, verification, or ed
 
 ---
 
-## 💡 How to Propose a Feature or Integration
+## How to Propose a Feature or Integration
 
 We actively build new integrations based on community demand!
 
@@ -53,7 +53,7 @@ We actively build new integrations based on community demand!
 
 ---
 
-## 🤝 How to Contribute Code & Build Features
+## How to Contribute Code & Build Features
 
 To maintain edge security, high Anycast performance, and production reliability, code contributions are managed via an automated invite & review workflow:
 
@@ -77,7 +77,7 @@ To maintain edge security, high Anycast performance, and production reliability,
 
 ---
 
-## 💬 Submitting General Feedback
+## Submitting General Feedback
 
 Have feedback on UI responsiveness, Anycast latencies in your region, or ideas for developer tooling?
 
@@ -86,7 +86,7 @@ Have feedback on UI responsiveness, Anycast latencies in your region, or ideas f
 
 ---
 
-## 🤝 Community Code of Conduct
+## Community Code of Conduct
 
 - **Be Respectful**: Treat fellow developers and maintainers with courtesy.
 - **Provide Actionable Details**: Actionable reproduction steps and clear technical details help us resolve issues in hours rather than days.

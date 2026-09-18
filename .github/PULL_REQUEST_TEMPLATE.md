@@ -1,21 +1,21 @@
-## 📋 Summary of Changes
+## Summary of Changes
 
 A concise description of the feature, bug fix, or documentation update introduced in this pull request.
 
 ---
 
-## 🏷️ Type of Change
+## Type of Change
 
-- [ ] 🚀 New Feature / Provider Integration (e.g. new hosting provider, UI component)
-- [ ] 🐛 Bug Fix (non-breaking change fixing an identified issue)
-- [ ] ⚡ Performance / DX Optimization
-- [ ] 🔒 Security / DNS Hardening
-- [ ] 📝 Documentation / Readme Update
-- [ ] 🧪 Test Suite Enhancement
+- [ ] New Feature / Provider Integration (e.g. new hosting provider, UI component)
+- [ ] Bug Fix (non-breaking change fixing an identified issue)
+- [ ] Performance / DX Optimization
+- [ ] Security / DNS Hardening
+- [ ] Documentation / Readme Update
+- [ ] Test Suite Enhancement
 
 ---
 
-## 🧪 Verification & Testing Performed
+## Verification & Testing Performed
 
 Please describe the tests you ran to verify your changes:
 
@@ -26,6 +26,6 @@ Please describe the tests you ran to verify your changes:
 
 ---
 
-## 🔗 Related Issues
+## Related Issues
 
 Closes # (issue number)

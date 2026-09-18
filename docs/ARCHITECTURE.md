@@ -1,4 +1,4 @@
-# 🏛️ Go-Live Architecture & Network Design
+# Go-Live Architecture & Network Design
 
 Go-Live is architected for maximum speed, global availability, and zero-configuration developer experience.
 
@@ -18,7 +18,7 @@ Go-Live is architected for maximum speed, global availability, and zero-configur
 
 ---
 
-## 🌐 1. Global Anycast DNS Network
+## 1. Global Anycast DNS Network
 - **300+ Edge Locations**: Distributed across North America, Europe, Asia-Pacific, Latin America, and Africa.
 - **BGP Anycast Routing**: User DNS queries are automatically routed to the topologically closest edge data center.
 - **Sub-30ms Global Latency**: Instantaneous name resolution with global Anycast caching.
@@ -26,14 +26,14 @@ Go-Live is architected for maximum speed, global availability, and zero-configur
 
 ---
 
-## 🔒 2. Universal SSL & TLS 1.3
+## 2. Universal SSL & TLS 1.3
 - **Automatic Provisioning**: Every claimed subdomain receives automated SSL/TLS certificates.
 - **Modern Protocols**: Full HTTP/2 and TLS 1.3 support with strong cipher suites.
 - **Zero Configuration**: No certbot, ACME cronjobs, or renewal errors required.
 
 ---
 
-## 🪜 3. Progressive Live Verification Ladder
+## 3. Progressive Live Verification Ladder
 When a developer binds or changes a subdomain target, Go-Live runs an automated, progressive verification ladder:
 1. **Cloudflare Record Assertion**: Validates dynamic DNS record creation in Cloudflare Zone.
 2. **Interval Probing**: Probes HTTP reachability and TLS handshake at 1s, 2s, 3s, 5s, and 7s intervals.
@@ -42,6 +42,6 @@ When a developer binds or changes a subdomain target, Go-Live runs an automated,
 
 ---
 
-## 🛡️ 4. Fair-Use & Cooldown Protection
+## 4. Fair-Use & Cooldown Protection
 - **1 Slot per Developer**: Authenticated via GitHub OAuth to ensure fair network resource allocation.
 - **2-Hour Release Cooldown**: When a subdomain is released, a 2-hour cooldown period prevents rapid name hoarding and edge thrashing.
