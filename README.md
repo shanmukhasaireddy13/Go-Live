@@ -1,14 +1,16 @@
 <div align="center">
 
-# ▲ Go-Live.me
+# ⚡ GoLive.me (go-live.me)
 
-### Instant, Globally-Distributed Anycast Subdomains for Developers.
+### Free Domains & Instant Globally-Distributed Anycast Subdomains for Developers.
 
 **Go from `localhost` to a live, production-grade `.go-live.me` domain in under 10 seconds.**
 
+Official Platform: **[https://go-live.me](https://go-live.me)**
+
 <br />
 
-[![Go-Live Preview](docs/assets/preview.svg)](https://go-live.me)
+[![GoLive.me Preview](docs/assets/preview.svg)](https://go-live.me)
 
 <br />
 
@@ -25,9 +27,9 @@
 
 ---
 
-## What is Go-Live?
+## What is GoLive.me?
 
-**Go-Live** gives every developer a permanent, high-performance edge slot under `*.go-live.me`. 
+**GoLive.me** gives every developer a permanent, free Anycast subdomain and custom domain slot under `*.go-live.me`. 
 
 No credit cards, no complex DNS dashboards, and no configuration headaches. Pick a subdomain, connect with GitHub, star the project to unlock your slot, and route your deployments worldwide in 1 click.
 
